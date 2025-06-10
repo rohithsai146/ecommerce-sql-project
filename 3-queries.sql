@@ -1,3 +1,6 @@
+--  Top 3 Most Selling Products
+
+
 SELECT 
     p.product_name,
     SUM(oi.quantity) AS total_quantity_sold
@@ -10,6 +13,8 @@ GROUP BY
 ORDER BY 
     total_quantity_sold DESC
 LIMIT 3;
+
+-- Revenue by Category
 
 
 SELECT 
@@ -25,6 +30,8 @@ ORDER BY
     total_revenue DESC;
 
 
+-- Monthly Orders Count
+
 SELECT 
     MONTH(order_date) AS order_month,
     COUNT(*) AS total_orders
@@ -35,6 +42,7 @@ GROUP BY
 ORDER BY 
     order_month;
 
+-- Customers with Highest Spending
 
 SELECT 
     c.full_name,
@@ -49,6 +57,8 @@ ORDER BY
     total_spent DESC
 LIMIT 5;
 
+
+-- Average Delivery Time (Only Delivered Orders)
 
 SELECT 
     o.order_id,
